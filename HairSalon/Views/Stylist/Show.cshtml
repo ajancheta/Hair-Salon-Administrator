@@ -13,7 +13,7 @@
 
     @if (@Model["clients"].Count != 0)
     {
-      <h4>Current clients:</h4>
+      <h3>Current clients:</h3>
 
       <ul>
         @foreach (var client in @Model["clients"])
@@ -23,8 +23,6 @@
       </ul>
     }
 
-
-    <!-- working ------>
     <form action='/stylists/@Model["stylist"].GetId()/edit' method='get'>
       <button type="submit">Edit this stylist</button>
     </form>

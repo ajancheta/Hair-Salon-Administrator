@@ -45,5 +45,16 @@ namespace HairSalon.Controllers
       return View(info);
     }
 
+    [HttpPost("/stylists/{stylistId}/clients/{clientId}")]
+    public ActionResult Update(int stylistId, int clientId, string newName, int newPhone)
+    {
+      Client client = Client.Find(clientId);
+      client.Edit(newName, newPhone);
+      Dictionary<string, object> info = new Dictionary<string, object>();
+      Stylist stylist = Stylist.Find(stylistId);
+      info.Add("stylist", stylist);
+      info.Add("client", client);
+      return View("Show", info);
+    }
   }
 }

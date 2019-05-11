@@ -10,7 +10,7 @@ namespace HairSalon.Models
     private int _stylistId;
     private string _name;
     private int _phone;
-  
+
     public Client (int stylistId, string name, int phone, int id = 0)
     {
       _id = id;
@@ -18,6 +18,10 @@ namespace HairSalon.Models
       _name = name;
       _phone = phone;
     }
+
+    public string ClientName { get => _name; set => _name = value; }
+
+    public int ClientPhone { get => _phone; set => _phone = value; }
 
     public int GetId()
     {
@@ -28,10 +32,6 @@ namespace HairSalon.Models
     {
       return _id;
     }
-
-    public string ClientName { get => _name; set => _name = value; }
-
-    public int ClientPhone { get => _phone; set => _phone = value; }
 
     public static List<Client> GetAll()
     {
@@ -73,6 +73,7 @@ namespace HairSalon.Models
       int clientStylistId = 0;
       string clientName = "";
       int clientPhone = 0;
+
       while(rdr.Read())
       {
         clientId = rdr.GetInt32(0);
@@ -80,8 +81,10 @@ namespace HairSalon.Models
         clientName = rdr.GetString(2);
         clientPhone = rdr.GetInt32(3);
       }
+
       Client newClient = new Client(clientStylistId, clientName, clientPhone, clientId);
       conn.Close();
+
       if (conn != null)
       {
         conn.Dispose();
@@ -140,14 +143,17 @@ namespace HairSalon.Models
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"UPDATE clients SET name = @newName, phone = @newPhone WHERE id = @searchId;";
+
       MySqlParameter searchId = new MySqlParameter();
       searchId.ParameterName = "@searchId";
       searchId.Value = _id;
       cmd.Parameters.Add(searchId);
+
       MySqlParameter name = new MySqlParameter();
       name.ParameterName = "@newName";
       name.Value = newName;
       cmd.Parameters.Add(name);
+
       MySqlParameter phone = new MySqlParameter();
       phone.ParameterName = "@newPhone";
       phone.Value = newPhone;

@@ -9,9 +9,11 @@
   </head>
 
   <body>
+    <h2>Client</h2><br>
 
-    <h2>Client: @Model["client"].ClientName</h2>
-    <p>Phone: @Model["client"].ClientPhone</p>
+
+    <h2>Name: @Model["client"].ClientName</h2>
+    <h4>Phone: @Model["client"].ClientPhone</h4><br>
 
     <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method='get'>
       <button type="submit">Edit this client</button>
