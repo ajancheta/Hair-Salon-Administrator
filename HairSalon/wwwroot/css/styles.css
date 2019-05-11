@@ -22,6 +22,7 @@
   text-decoration: none;
   color: #FFFFFF;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .isDisabled {
@@ -35,8 +36,6 @@
 
 #indexNav a:hover {
   color: #a2a6ad;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 #nav ul {
@@ -68,7 +67,29 @@ body {
 .employee {
   padding-top: 20px;
   padding-left: 30px;
+}
 
+.new {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.stylistName {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+button {
+  font-size: 10px;
+}
+
+.deleteButton {
+  padding-top: 50px;
+}
+
+.clientList {
+  font-size: 20px;
+  letter-spacing: 2px;
 }
 
 a {
@@ -79,7 +100,6 @@ a {
 
 a:hover {
   font-weight: bold;
-  color: #FFFFFF;
+  color: #a2a6ad;
   text-decoration: none;
-  letter-spacing: 5px;
 }

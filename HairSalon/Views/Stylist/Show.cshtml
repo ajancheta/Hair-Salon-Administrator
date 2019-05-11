@@ -2,47 +2,74 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Hair Salon</title>
+    <title>HOʻĀKOAKOA</title>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
+      <img src="https://image.flaticon.com/icons/svg/859/859153.svg" width="40" height="40" alt="hashtag">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists">Stylists</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/new">Adding a new stylist</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/edit">Edit @Model["stylist"].StylistName</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/new">Add new client to @Model["stylist"].StylistName</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="employee">
+      <h1 class="welcome">Stylist: @Model["stylist"].StylistName</h1>
+
+      @if (@Model["clients"].Count == 0)
+      {
+        <h3>No clients have been added yet!</h3>
+        <br><br><form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+          <button type="submit" class="btn btn-info">Add a new client</button>
+        </form>
+
+      }
+
+      @if (@Model["clients"].Count != 0)
+
+      {
+
+        <h3>Current clients</h3>
 
 
-    <h2>Stylist: @Model["stylist"].StylistName</h2>
+        <ul class="clientList">
+          @foreach (var client in @Model["clients"])
+          {
+            <li><a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a></li>
+          }
+        </ul>
 
-    @if (@Model["clients"].Count != 0)
-    {
-      <h3>Current clients:</h3>
+        <div class="deleteButton">
+          <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
+            <button type="submit" class="btn btn-danger btn-sm">Delete all clients</button>
+          </form><br>
 
-      <ul>
-        @foreach (var client in @Model["clients"])
-        {
-          <li><a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a></li>
-        }
-      </ul>
-    }
+          <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
+            <button type="submit" class="btn btn-danger btn-sm">Delete this stylist</button>
+          </form>
+        </div>
+      }
 
-    <form action='/stylists/@Model["stylist"].GetId()/edit' method='get'>
-      <button type="submit">Edit this stylist</button>
-    </form>
-    <br>
-
-    <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
-      <button type="submit">Delete this stylist</button>
-    </form>
-    <br>
-
-    <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
-      <button type="submit">Add a new client</button>
-    </form>
-    <br>
-
-    <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
-      <button type="submit">Delete all clients</button>
-    </form>
+    </div>
 
   </body>
 </html>

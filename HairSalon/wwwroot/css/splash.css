@@ -22,21 +22,20 @@
   text-decoration: none;
   color: #FFFFFF;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .isDisabled {
   color: #000000;
   text-decoration: none;
   pointer-events: none;
-  font-weight: bold;
+  font-weight: 3px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
 }
 
 #indexNav a:hover {
   color: #a2a6ad;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 
 #nav ul {
@@ -58,33 +57,20 @@ body {
 }
 
 .intro {
-  font-family: 'Staatliches', cursive;
   text-align: center;
   padding-top: 200px;
 }
 
 .welcome {
+  font-family: 'Staatliches', cursive;
   font-size: 90px;
   letter-spacing: 5px;
 }
 
-.def {
+.blurb {
   text-transform: uppercase;
   font-size: 15px;
   letter-spacing: 3px;
   line-height: 8px;
   font-family: 'Montserrat', sans-serif;
-}
-
-a {
-  color: pink;
-  /* font-size: 3em; */
-  text-decoration: none;
-}
-
-a:hover {
-  font-weight: bold;
-  color: #FFFFFF;
-  text-decoration: none;
-  letter-spacing: 5px;
 }

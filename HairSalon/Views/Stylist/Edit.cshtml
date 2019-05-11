@@ -1,29 +1,62 @@
+@using HairSalon.Models;
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Hair Salon</title>
+    <title>HOʻĀKOAKOA</title>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
+      <img src="https://image.flaticon.com/icons/svg/859/859153.svg" width="40" height="40" alt="hashtag">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists">Stylists</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/new">Add new stylist</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/new">Add new client to @Model["stylist"].StylistName</a>
+          </li>
+          <!-- <li class="nav-item">
+          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients">See clients for @Model["stylist"].StylistName</a>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <h1 class="welcome">Edit Stylist: @Model["stylist"].StylistName</h1>
+
+    <div class="new">
+      <form action="/stylists/@Model["stylist"].GetId()/update" method="post">
+        <label for="newName">Edit Name:</label><br>
+        <input type="text" name="newName" value="@Model["stylist"].StylistName">
+
+        <button type="submit" class="btn btn-info btn-sm">Edit</button>
+      </form>
+
+      @if (@Model.Count == 0)
+      {
+        <h3>No stylists have been added yet!</h3>
+        <br><br><form action='/stylists/new' method='get'>
+          <button type="submit" class="btn btn-success">Add a new stylist</button>
+        </form>
+
+      }
+
+    </div>
 
 
-    <h1>Hair Salon</h1><br>
-    <h3>Edit Stylist: @Model["stylist"].StylistName</h3>
 
-    <form action='/stylists' method='get'>
-      <button type="submit">View all stylists</button>
-    </form><br>
-
-    <form action="/stylists/@Model["stylist"].GetId()/update" method="post">
-      <label for="newName">Name:</label>
-      <input type="text" name="newName" value="@Model["stylist"].StylistName">
-
-      <button type="submit">Edit</button>
-    </form>
 
   </body>
 </html>
