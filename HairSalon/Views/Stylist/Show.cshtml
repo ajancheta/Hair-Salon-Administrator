@@ -11,6 +11,17 @@
   <body>
     <h2>Stylist: @Model["stylist"].StylistName</h2>
 
+    <h3>Clients:
+
+      foreach(var client in Model)
+      {
+        <ul>
+          <li><a href="/stylists/{stylistId}/clients/{clientId}">@client.ClientName</a></li>
+        </ul>
+      }
+
+    </h3>
+
     <form action='/stylists/@Model["stylist"].GetId()/edit' method='get'>
       <button type="submit">Edit this stylist</button>
     </form>

@@ -10,11 +10,16 @@
 
   <body>
 
-    <h2>Client @Model["client"].ClientName</h2>
+    <h2>Client: @Model["client"].ClientName</h2>
     <p>Phone: @Model["client"].ClientPhone</p>
 
     <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method='get'>
       <button type="submit">Edit this client</button>
+    </form>
+    <br>
+
+    <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='get'>
+      <button type="submit">Delete this client</button>
     </form>
     <br>
 
@@ -23,10 +28,7 @@
     </form>
     <br>
 
-    <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='get'>
-      <button type="submit">Delete this client</button>
-    </form>
-    <br>
+
 
 
   </body>
