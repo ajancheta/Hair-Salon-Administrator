@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hair Salon</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+
+  <body>
+    <form action="/stylists" method="post">
+      <label for="stylistName">Stylist Name</label>
+      <input id="stylistName" name="stylistName" type="text">
+      <button type="submit">Add Stylist</button>
+    </form>
+
+    <form action='/stylists' method='get'>
+      <button type="submit">View All Stylists</button>
+    </form>
+
+  </body>
+  
+</html>

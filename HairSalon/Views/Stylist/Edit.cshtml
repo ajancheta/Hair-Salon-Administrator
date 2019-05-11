@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hair Salon</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+
+  <body>
+
+    <h1>Hair Salon</h1><br>
+    <h3>Edit Stylist: @Model["stylist"].StylistName</h3>
+
+    <form action='/stylists' method='get'>
+      <button type="submit">View all stylists</button>
+    </form><br>
+
+    <form action="/stylists/@Model["stylist"].GetId()/update" method="post">
+      <label for="newName">Name:</label>
+      <input type="text" name="newName" value="@Model["stylist"].StylistName">
+
+      <button type="submit">Edit</button>
+    </form>
+
+  </body>
+</html>

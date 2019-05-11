@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hair Salon</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+
+  <body>
+
+    <h2>Client @Model["client"].ClientName</h2>
+    <p>Phone: @Model["client"].ClientPhone</p>
+
+    <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method='get'>
+      <button type="submit">Edit this client</button>
+    </form>
+    <br>
+
+    <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+      <button type="submit">Add another client</button>
+    </form>
+    <br>
+
+    <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='get'>
+      <button type="submit">Delete this client</button>
+    </form>
+    <br>
+
+
+  </body>
+</html>

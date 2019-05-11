@@ -1,0 +1,32 @@
+@using HairSalon.Models;
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Hair Salon</title>
+    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+
+  <body>
+    <h2>Add a new client to @Model.StylistName</h2>
+
+    <form action='/stylists/@Model.GetId()/clients' method='post'>
+    <input id='stylistId' name='stylistId' type='hidden' value='@Model.GetId()'>
+
+     <label for='clientName'>Name:</label>
+     <input id='clientName' name='clientName' type='text' required>
+     <br>
+     <label for='clientPhone'>Phone number:</label>
+     <input id='clientPhone' name='clientPhone' type='number' required>
+
+     <button type="submit">Add client</button>
+
+   </form>
+
+
+
+  </body>
+</html>
