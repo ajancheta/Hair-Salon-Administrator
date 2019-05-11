@@ -1,35 +1,56 @@
+@using HairSalon.Models;
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset='utf-8'>
     <title>Hair Salon</title>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
+      <img src="https://image.flaticon.com/icons/svg/859/859153.svg" width="40" height="40" alt="hashtag">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="isDisabled" href="/stylists">Stylists</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/new">Add new stylist</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <h2>Current stylists:</h2>
+    <h1 class="welcome">Current Stylists:</h1>
 
+    <div class="employee">
 
-    @if (@Model.Count == 0)
-    {
-      <h3>No stylists have been added yet!</h3>
-    }
+      @if (@Model.Count == 0)
+      {
+        <h3>No stylists have been added yet!</h3>
+        <br><br><form action='/stylists/new' method='get'>
+          <button type="submit" class="btn btn-success">Add a new stylist</button>
+        </form>
 
-    @foreach(var stylist in Model)
-    {
-      <h3><a href="/stylists/@stylist.GetId()">@stylist.StylistName</a></h3>
-    }
+      }
 
-    <form action='/stylists/new' method='get'>
-      <button type="submit">Add a new stylist</button>
-    </form><br>
+      @foreach(var stylist in Model)
+      {
+        <h3><a href="/stylists/@stylist.GetId()">@stylist.StylistName</a></h3>
+      }
 
-    <form action='/stylists/delete' method='post'>
-      <button type="submit">Delete all stylists</button>
-    </form><br>
+      <br><br><form action='/stylists/delete' method='post'>
+        <button type="submit" class="btn btn-danger">Delete all stylists</button>
+      </form>
+    </div>
+
 
   </body>
 
