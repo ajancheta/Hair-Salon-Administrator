@@ -105,15 +105,18 @@ a:hover {
 }
 
 .backButton{
-  padding-top:
+  padding-top: 50px;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
+#btnClientDelete,
+#btnStylistDelete {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.outline {
+  border: 1px solid white;
+  padding: 30px;
+  margin-left: 400px;
+  margin-right: 400px;
 }

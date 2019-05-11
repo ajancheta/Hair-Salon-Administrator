@@ -26,26 +26,27 @@
     <h1 class="welcome">Edit Client Information</h1>
 
     <div class="new">
-      <h2>Edit client: @Model["client"].ClientName</h2>
-      <h2>Contact: @Model["client"].ClientPhone</h2><br>
+      <div class="outline">
+        <h2>Edit client: @Model["client"].ClientName</h2>
+        <h2>Contact: @Model["client"].ClientPhone</h2><br>
 
-      <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()' method='post'>
+        <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()' method='post'>
 
-        <label for="newName">Name:</label>
-        <input type="text" name="newName" value="@Model["client"].ClientName"><br>
+          <label for="newName">Name:</label>
+          <input type="text" name="newName" value="@Model["client"].ClientName"><br>
 
-        <label for="newPhone">Phone:</label>
-        <input type="number" name="newPhone" value="@Model["client"].ClientPhone">
+          <label for="newPhone">Phone:</label>
+          <input type="number" name="newPhone" value="@Model["client"].ClientPhone">
 
-        <button type="submit">Edit</button>
+          <button type="submit" class="btn btn-info btn-sm">Edit</button>
 
-        <!-- <div class="backButton">
-          <button type="back" class="btn btn-info">Back</button>
-        </div> -->
 
-        <div class="footer">
-          <a class="back" type="back" href="back">Back</a>
-        </div>
+          <div class="backButton">
+            <button type="back" class="btn btn-info">Back</button>
+          </div>
+      </div>
+
+      </div>
 
 
 

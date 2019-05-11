@@ -58,18 +58,16 @@
           }
         </ul>
 
-        <div class="deleteButton">
+
           <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
-            <button type="submit" class="btn btn-danger btn-sm">Delete all clients</button>
-          </form><br>
+            <button type="submit" class="btn btn-danger btn-sm" id="btnClientDelete">Delete all clients</button>
+          </form>
 
           <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
-            <button type="submit" class="btn btn-danger btn-sm">Delete this stylist</button>
+            <button type="submit" class="btn btn-danger btn-sm" id="btnStylistDelete">Delete this stylist</button>
           </form>
-        </div>
-      }
 
-    </div>
+      }
 
   </body>
 </html>
