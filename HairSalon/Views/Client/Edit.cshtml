@@ -2,27 +2,52 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Hair Salon</title>
+    <title>HOʻĀKOAKOA</title>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
+      <img src="https://image.flaticon.com/icons/svg/859/859153.svg" width="40" height="40" alt="hashtag">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists">Stylists</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <h2>Edit client: @Model["client"].ClientName</h2>
-    <h2>Contact: @Model["client"].ClientPhone</h2><br>
+    <h1 class="welcome">Edit Client Information</h1>
 
-    <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()' method='post'>
+    <div class="new">
+      <h2>Edit client: @Model["client"].ClientName</h2>
+      <h2>Contact: @Model["client"].ClientPhone</h2><br>
 
-      <label for="newName">Name:</label>
-      <input type="text" name="newName" value="@Model["client"].ClientName"><br>
+      <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()' method='post'>
 
-      <label for="newPhone">Phone:</label>
-      <input type="number" name="newPhone" value="@Model["client"].ClientPhone">
+        <label for="newName">Name:</label>
+        <input type="text" name="newName" value="@Model["client"].ClientName"><br>
 
-      <button type="submit">Edit</button>
-    </form>
+        <label for="newPhone">Phone:</label>
+        <input type="number" name="newPhone" value="@Model["client"].ClientPhone">
+
+        <button type="submit">Edit</button>
+
+        <!-- <div class="backButton">
+          <button type="back" class="btn btn-info">Back</button>
+        </div> -->
+
+        <div class="footer">
+          <a class="back" type="back" href="back">Back</a>
+        </div>
+
+
 
   </body>
 </html>

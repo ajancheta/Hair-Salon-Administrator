@@ -2,36 +2,43 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>Hair Salon</title>
+    <title>HOʻĀKOAKOA</title>
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
     <link rel="stylesheet" href="~/css/styles.css">
   </head>
 
   <body>
-    <h2>Client</h2><br>
+    <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
+      <img src="https://image.flaticon.com/icons/svg/859/859153.svg" width="40" height="40" alt="hashtag">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists">Stylists</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit">Edit Client</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/new">Add new client to Stylist</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
+    <h1 class="welcome">Client Information</h1>
 
-    <h2>Name: @Model["client"].ClientName</h2>
-    <h4>Contact: @Model["client"].ClientPhone</h4><br>
+    <div class="employee">
+      <h2>Name: @Model["client"].ClientName</h2>
+      <h2>Contact: @Model["client"].ClientPhone</h4>
+      <h2>Stylist: @Model["stylist"].StylistName</h4>
 
-    <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method='get'>
-      <button type="submit">Edit this client</button>
-    </form>
-    <br>
-
-    <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='get'>
-      <button type="submit">Delete this client</button>
-    </form>
-    <br>
-
-    <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
-      <button type="submit">Add another client</button>
-    </form>
-    <br>
-
-
-
+      <form action='/stylists/delete' method='post'>
+        <button type="submit" class="btn btn-danger btn-sm">Delete this client</button>
+      </form>
 
   </body>
 </html>

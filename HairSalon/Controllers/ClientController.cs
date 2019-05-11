@@ -56,5 +56,7 @@ namespace HairSalon.Controllers
       info.Add("client", client);
       return View("Show", info);
     }
+
+
   }
 }
