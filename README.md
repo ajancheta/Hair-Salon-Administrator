@@ -44,13 +44,17 @@ _This is an application for Hair Salon employers to keep track of their stylist 
 * INSERT INTO stylists (id, name) VALUES (1, "Chelsey Savage"), (2, "Channey Tang Ho");
 * CREATE TABLE clients (id PRIMARY KEY, stylist_id INT);
 * INSERT INTO clients (id, stylist_id, name, phone) VALUES (1, "Chelsey Savage", 5032334444), (2, "Channey Tang Ho", 5031112222);
-* For each id in each table: assign the id's to become the primary key. 
+* For each id in each table: assign the id's to become the primary key.
 
 
 
 ## Known Bugs
 
 _Client phone numbers will save as integer 0 in the database despite user inputs. The delete client button is still in progress, but the functionality to delete all clients is present.
+
+## Commit History
+_Due to complication with git earlier today, some of my commit history was lost. There are screen shots of what I committed throughout the day within the img directory nested in the wwwroot directory.
+
 
 ## Support and contact details
 
