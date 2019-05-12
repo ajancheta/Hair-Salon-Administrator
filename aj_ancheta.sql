@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 11, 2019 at 05:38 PM
+-- Generation Time: May 12, 2019 at 02:39 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -24,7 +24,7 @@ CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
   `stylist_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `phone` int(10) DEFAULT NULL
+  `phone` bigint(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -33,7 +33,9 @@ CREATE TABLE `clients` (
 
 INSERT INTO `clients` (`id`, `stylist_id`, `name`, `phone`) VALUES
 (4, 6, 'AJ', 0),
-(5, 6, 'Channel', 0);
+(5, 6, 'Channel', 0),
+(6, 7, 'Cory', 0),
+(7, 7, 'Kim', 0);
 
 -- --------------------------------------------------------
 
@@ -78,7 +80,7 @@ ALTER TABLE `stylists`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `stylists`

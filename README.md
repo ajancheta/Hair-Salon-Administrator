@@ -38,18 +38,23 @@ _This is an application for Hair Salon employers to keep track of their stylist 
 ## Setup Instructions for re-creating the Database
 * After successful installation of MAMP and MySQL, connect to the server by running $ mysql -uroot -proot in the command line. If this gives you an error, instead, refer to the top setup instructions for using file paths based on your personal operating system (Mac/Windows).
 * To create a database complete the following commands:
-> CREATE DATABASE aj_ancheta;
-> USE aj_ancheta;
-> CREATE TABLE stylists (id PRIMARY KEY, name VARCHAR(255));
-> CREATE TABLE clients (id PRIMARY KEY, stylist_id INT).
+* CREATE DATABASE aj_ancheta;
+* USE aj_ancheta;
+* CREATE TABLE stylists (id PRIMARY KEY, name VARCHAR(255));
+* INSERT INTO stylists (id, name) VALUES (1, "Chelsey Savage"), (2, "Channey Tang Ho");
+* CREATE TABLE clients (id PRIMARY KEY, stylist_id INT);
+* INSERT INTO clients (id, stylist_id, name, phone) VALUES (1, "Chelsey Savage", 5032334444), (2, "Channey Tang Ho", 5031112222);
+* For each id in each table: assign the id's to become the primary key. 
+
+
 
 ## Known Bugs
 
-_There are no known bugs._
+_Client phone numbers will save as integer 0 in the database despite user inputs. The delete client button is still in progress, but the functionality to delete all clients is present.
 
 ## Support and contact details
 
-_Should any problems occur, discover other bugs, or experience issues with viewing, please contact me at ashleyjancheta@gmail.com_
+_This application is best viewed on a full screen. Should any problems occur, discover other bugs, or experience issues with viewing, please contact me at ashleyjancheta@gmail.com_
 
 ## Technologies Used
 

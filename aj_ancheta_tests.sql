@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 11, 2019 at 05:38 PM
+-- Generation Time: May 12, 2019 at 02:39 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -24,7 +24,7 @@ CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
   `stylist_id` int(11) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `phone` int(10) DEFAULT NULL
+  `phone` bigint(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -32,9 +32,11 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `stylist_id`, `name`, `phone`) VALUES
-(179, 103, 'Randee', 0),
-(180, 103, 'Rhea', 0),
-(181, 104, 'AJ', 0);
+(235, 143, 'AJ', 0),
+(246, 146, 'Chris', 0),
+(247, 146, 'Nicole', 0),
+(250, 144, 'Randee', 0),
+(251, 144, 'Nicole', 0);
 
 -- --------------------------------------------------------
 
@@ -52,8 +54,9 @@ CREATE TABLE `stylists` (
 --
 
 INSERT INTO `stylists` (`id`, `name`) VALUES
-(103, 'Chelsey Savage'),
-(104, 'Channey Tang Ho');
+(143, 'Chelsey Savage'),
+(144, 'Esther Claire'),
+(146, 'Sang Nguyen');
 
 --
 -- Indexes for dumped tables
@@ -79,10 +82,10 @@ ALTER TABLE `stylists`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
 
 --
 -- AUTO_INCREMENT for table `stylists`
 --
 ALTER TABLE `stylists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
