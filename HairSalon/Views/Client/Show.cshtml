@@ -10,7 +10,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
-      <img src="https://image.flaticon.com/icons/svg/859/859153.svg" width="40" height="40" alt="hashtag">
+      <img src="https://image.flaticon.com/icons/svg/1720/1720737.svg" width="40" height="40" alt="hashtag">
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -18,10 +18,7 @@
           </li>
           <li class="nav-item">
           <a class="nav-link" href="/stylists">Stylists</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit">Edit Client</a>
-          </li>
+        </li>
         </ul>
       </div>
     </nav>
@@ -30,18 +27,17 @@
 
     <div class="new">
       <div class="outline">
-
         <div class="employee">
           <h2>Name: @Model["client"].ClientName</h2>
           <h2>Contact: @Model["client"].ClientPhone</h4>
           <h2>Stylist: @Model["stylist"].StylistName</h4>
-
-          <form action='/stylists/delete' method='post'>
-            <button id="button" type="submit" class="btn btn-danger btn-sm">Delete this client</button>
-          </form>
-
         </div>
       </div>
+
+      <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='post'>
+      <button id="btnClientDelete" type="submit" class="btn btn-danger">Delete client</button>
+      </form>
+
     </div>
 
   </body>

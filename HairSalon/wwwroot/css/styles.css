@@ -53,7 +53,6 @@ body {
 
   font-family: 'Montserrat', sans-serif;
   background-color: #000000;
-  /* background-image: url("https://images.unsplash.com/photo-1547516204-f44352630050?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2534&q=80"); */
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -87,8 +86,8 @@ body {
   margin-top: 50px;
 }
 
-.deleteButton {
-  padding-top: 50px;
+#deleteButton {
+  margin-top: 50px;
 }
 
 .clientList {
@@ -110,12 +109,6 @@ a:hover {
 
 .backButton{
   padding-top: 30px;
-}
-
-#btnClientDelete,
-#btnStylistDelete {
-    display: inline-block;
-    vertical-align: top;
 }
 
 .outline {
