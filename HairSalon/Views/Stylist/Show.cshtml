@@ -20,54 +20,61 @@
           <a class="nav-link" href="/stylists">Stylists</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="/stylists/new">Adding a new stylist</a>
+          <a class="nav-link" href="/stylists/new">Add a new stylist</a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/edit">Edit @Model["stylist"].StylistName</a>
-          </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/new">Add new client to @Model["stylist"].StylistName</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <div class="employee">
-      <h1 class="welcome">Stylist: @Model["stylist"].StylistName</h1>
+    <h1 class="welcome">Stylist: @Model["stylist"].StylistName</h1>
 
-      @if (@Model["clients"].Count == 0)
-      {
-        <h3>No clients have been added yet!</h3>
-        <br><br><form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
-          <button type="submit" class="btn btn-info">Add a new client</button>
-        </form>
-
-      }
-
-      @if (@Model["clients"].Count != 0)
-
-      {
-
-        <h3>Current clients</h3>
-
-
-        <ul class="clientList">
-          @foreach (var client in @Model["clients"])
+    <div class="new">
+      <div class="outline">
+        <div class="employee">
+          @if (@Model["clients"].Count == 0)
           {
-            <li><a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a></li>
+            <h3>No clients have been added yet!</h3>
+            <br><br><form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+              <button type="submit" class="btn btn-info">Add a new client</button>
+            </form>
+
           }
-        </ul>
+
+          @if (@Model["clients"].Count != 0)
+
+          {
+
+            <h3>Current clients</h3>
 
 
-          <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
-            <button type="submit" class="btn btn-danger btn-sm" id="btnClientDelete">Delete all clients</button>
-          </form>
+            <ul class="clientList">
+              @foreach (var client in @Model["clients"])
+              {
+                <li><a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a></li>
+              }
+            </ul>
 
-          <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
-            <button type="submit" class="btn btn-danger btn-sm" id="btnStylistDelete">Delete this stylist</button>
-          </form>
 
-      }
+            <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+              <button type="submit" class="btn btn-info btn-sm">Add another client</button>
+            </form>
+
+              <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
+                <button type="submit" class="btn btn-danger btn-sm" id="btnClientDelete">Delete all clients</button>
+              </form>
+          }
+        </div>
+
+      </div>
+
+      <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
+        <button type="submit" class="btn btn-danger btn-lg" id="btnStylistDelete">Delete this stylist</button>
+      </form>
+
+    </div>
 
   </body>
 </html>

@@ -22,23 +22,27 @@
           <li class="nav-item">
           <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit">Edit Client</a>
           </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/clients/new">Add new client to Stylist</a>
-          </li>
         </ul>
       </div>
     </nav>
 
     <h1 class="welcome">Client Information</h1>
 
-    <div class="employee">
-      <h2>Name: @Model["client"].ClientName</h2>
-      <h2>Contact: @Model["client"].ClientPhone</h4>
-      <h2>Stylist: @Model["stylist"].StylistName</h4>
+    <div class="new">
+      <div class="outline">
 
-      <form action='/stylists/delete' method='post'>
-        <button type="submit" class="btn btn-danger btn-sm">Delete this client</button>
-      </form>
+        <div class="employee">
+          <h2>Name: @Model["client"].ClientName</h2>
+          <h2>Contact: @Model["client"].ClientPhone</h4>
+          <h2>Stylist: @Model["stylist"].StylistName</h4>
+
+          <form action='/stylists/delete' method='post'>
+            <button id="button" type="submit" class="btn btn-danger btn-sm">Delete this client</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
