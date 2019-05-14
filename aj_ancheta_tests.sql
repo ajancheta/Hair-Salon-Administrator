@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 12, 2019 at 02:39 AM
+-- Generation Time: May 14, 2019 at 01:31 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -13,6 +13,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `aj_ancheta_test`
 --
+CREATE DATABASE IF NOT EXISTS `aj_ancheta_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `aj_ancheta_test`;
 
 -- --------------------------------------------------------
 

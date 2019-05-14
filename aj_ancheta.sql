@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 12, 2019 at 02:39 AM
+-- Generation Time: May 14, 2019 at 01:26 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -13,6 +13,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `aj_ancheta`
 --
+CREATE DATABASE IF NOT EXISTS `aj_ancheta` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `aj_ancheta`;
 
 -- --------------------------------------------------------
 
@@ -35,7 +37,8 @@ INSERT INTO `clients` (`id`, `stylist_id`, `name`, `phone`) VALUES
 (4, 6, 'AJ', 0),
 (5, 6, 'Channel', 0),
 (6, 7, 'Cory', 0),
-(7, 7, 'Kim', 0);
+(7, 7, 'Kim', 0),
+(8, 8, 'Channel', 0);
 
 -- --------------------------------------------------------
 
@@ -54,7 +57,8 @@ CREATE TABLE `stylists` (
 
 INSERT INTO `stylists` (`id`, `name`) VALUES
 (6, 'Chelsey Savage'),
-(7, 'Channey Tang Ho');
+(7, 'Channey Tang Ho'),
+(8, 'Sang Nguyen');
 
 --
 -- Indexes for dumped tables
@@ -80,10 +84,10 @@ ALTER TABLE `stylists`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `stylists`
 --
 ALTER TABLE `stylists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;

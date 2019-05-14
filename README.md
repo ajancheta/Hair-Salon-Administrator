@@ -55,7 +55,6 @@ _Client phone numbers will save as integer 0 in the database despite user inputs
 ## Commit History
 _Due to complication with git earlier today, some of my commit history was lost. There are screen shots of what I committed throughout the day within the img directory nested in the wwwroot directory.
 
-
 ## Support and contact details
 
 _This application is best viewed on a full screen. Should any problems occur, discover other bugs, or experience issues with viewing, please contact me at ashleyjancheta@gmail.com_
