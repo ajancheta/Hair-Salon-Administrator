@@ -50,10 +50,13 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete")]
-    public ActionResult Delete(int clientId)
+    public ActionResult Delete(int clientId, int stylistId)
     {
       Dictionary<string, object> info = new Dictionary<string, object>();
       Client client = Client.Find(clientId);
+      Stylist stylist  = Stylist.Find(stylistId);
+      info.Add("client", client);
+      info.Add("stylist", stylist);
       client.Delete();
       return View("Delete", info);
     }
