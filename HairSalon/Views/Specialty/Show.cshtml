@@ -56,10 +56,12 @@
 
         @if (@Model.Count != 0)
         {
-          @foreach (var stylists in @Model["selectedStylist"])
+          <ul>
+          @foreach (Stylist stylist in @Model["specialtyStylists"])
           {
             <li>@stylist.StylistName</li>
           }
+          </ul>
         }
 
       </div>

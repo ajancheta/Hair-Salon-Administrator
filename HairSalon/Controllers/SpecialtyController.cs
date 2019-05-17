@@ -57,7 +57,7 @@ namespace HairSalon.Controllers
     {
       Specialty specialty = Specialty.Find(specialtyId);
       specialty.Delete();
-      
+
       return RedirectToAction("Index");
     }
   }
