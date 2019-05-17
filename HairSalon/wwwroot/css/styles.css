@@ -134,12 +134,13 @@ label {
   margin-top: 20px;
 }
 
-ul {
+/* ul {
     list-style-type: none;
-}​
+}​ */
 
-#specialtyName {
+.subHeading {
   font-family: 'Staatliches', cursive;
+  letter-spacing: 3px;
+  text-align: center;
   text-transform: uppercase;
-  padding-bottom: 3px;
 }

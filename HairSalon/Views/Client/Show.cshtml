@@ -33,10 +33,14 @@
           <h2>Stylist: @Model["stylist"].StylistName</h4>
         </div>
       </div>
+      <br>
+      <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit' method='get'>
+      <button type="submit" class="btn btn-warning">Edit</button>
+    </form>
 
       <form action='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete' method='post'>
       <button id="btnClientDelete" type="submit" class="btn btn-danger">Delete client</button>
-      </form>
+    </form>
 
     </div>
 
