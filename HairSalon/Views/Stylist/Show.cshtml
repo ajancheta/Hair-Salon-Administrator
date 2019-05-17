@@ -1,80 +1,93 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <title>HOʻĀKOAKOA</title>
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/styles.css">
-  </head>
+<head>
+  <meta charset='utf-8'>
+  <title>HOʻĀKOAKOA</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
+  <link rel="stylesheet" href="~/css/styles.css">
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
-        <img src="https://image.flaticon.com/icons/svg/1720/1720737.svg" width="40" height="40" alt="hashtag">
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
+<body>
+  <nav class="navbar navbar-expand-lg" class="sticky-top" id="indexNav">
+    <img src="https://image.flaticon.com/icons/svg/1720/1720737.svg" width="40" height="40" alt="hashtag">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/stylists">Stylists</a>
-          </li>
-          <li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/stylists/new">Add a new stylist</a>
-          </li>
-          <li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/stylists/@Model["stylist"].GetId()/edit">Edit @Model["stylist"].StylistName</a>
         </li>
-        </ul>
+      </ul>
+    </div>
+  </nav>
+
+  <h1 class="welcome">Stylist: @Model["stylist"].StylistName</h1>
+
+  <div class="new">
+    <div class="outline">
+      <div class="employee">
+        @if (@Model["clients"].Count == 0)
+        {
+          <h3>No clients have been added yet!</h3>
+          <br><br><form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+            <button type="submit" class="btn btn-info">Add a new client</button>
+          </form>
+
+        }
+
+        @if (@Model["clients"].Count != 0)
+
+        {
+
+          <h3>Current clients</h3>
+
+
+          <ul class="clientList">
+            @foreach (var client in @Model["clients"])
+            {
+              <li><a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a></li>
+            }
+          </ul>
+
+
+          <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+            <button type="submit" class="btn btn-info btn-sm">Add another client</button>
+          </form>
+
+          <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
+            <button type="submit" class="btn btn-danger btn-sm" id="btnClientDelete">Delete all clients</button>
+          </form>
+        }
       </div>
-    </nav>
-
-    <h1 class="welcome">Stylist: @Model["stylist"].StylistName</h1>
-
-    <div class="new">
-      <div class="outline">
-        <div class="employee">
-          @if (@Model["clients"].Count == 0)
-          {
-            <h3>No clients have been added yet!</h3>
-            <br><br><form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
-              <button type="submit" class="btn btn-info">Add a new client</button>
-            </form>
-
-          }
-
-          @if (@Model["clients"].Count != 0)
-
-          {
-
-            <h3>Current clients</h3>
-
-
-            <ul class="clientList">
-              @foreach (var client in @Model["clients"])
-              {
-                <li><a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a></li>
-              }
-            </ul>
-
-
-            <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
-              <button type="submit" class="btn btn-info btn-sm">Add another client</button>
-            </form>
-
-              <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
-                <button type="submit" class="btn btn-danger btn-sm" id="btnClientDelete">Delete all clients</button>
-              </form>
-          }
-        </div>
-
-      </div>
-
-      <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
-        <button type="submit" class="btn btn-danger btn-lg" id="btnStylistDelete">Delete this stylist</button>
-      </form>
 
     </div>
 
-  </body>
+    <h4>Add a specialty to this stylist:</h4>
+
+    <form action='/stylists/@Model["stylist"].GetId()/specialties/new' method='post'>
+      <label for='specialtyId'>Select a specialty</label>
+      <select id='specialtyId' name='specialtyId' type='text'>
+        @foreach (var specialty in @Model["allSpecialties"])
+        {
+          <option value='@specialty.GetId()'>@specialty.SpecialtyName</option>
+        }
+      </select>
+      <button class="btn btn-warning" type='submit'>Add</button>
+    </form>
+
+    <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
+      <button type="submit" class="btn btn-danger btn-lg" id="btnStylistDelete">Delete this stylist</button>
+    </form>
+
+  </div>
+
+</body>
 </html>

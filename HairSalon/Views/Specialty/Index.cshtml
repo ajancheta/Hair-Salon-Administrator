@@ -19,7 +19,7 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-          <a class="isDisabled" href="/stylists">Stylists</a>
+          <a class="nav-link" href="/stylists">Stylists</a>
           </li>
         </ul>
       </div>
@@ -29,6 +29,7 @@
 
     <div class="new">
       <div class="outline">
+
         @if (@Model.Count == 0)
         {
           <h3>No specialties have been added yet!</h3>
@@ -42,18 +43,11 @@
 
         <br><br><form action='/specialties/new' method='get'>
           <button type="submit" class="btn btn-info btn-sm">Add new specialty</button>
-        </form><br>
+        </form>
 
-        <form action='/specialties/delete' method='post'>
-          <button type="submit" class="btn btn-danger btn-sm">Delete all specialties</button>
         </form>
       </div>
     </div>
-
-
-
-
-
 
   </body>
 </html>
