@@ -34,7 +34,7 @@ namespace HairSalon.Models
         int specialtyId = rdr.GetInt32(0);
         string specialtyName = rdr.GetString(1);
         Specialty newSpecialty = new Specialty(specialtyName, specialtyId);
-        allSpecialtys.Add(newSpecialty);
+        allSpecialties.Add(newSpecialty);
       }
       conn.Close();
       if(conn!=null)
