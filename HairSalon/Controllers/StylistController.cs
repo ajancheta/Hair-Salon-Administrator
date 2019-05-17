@@ -45,7 +45,7 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost("/stylists/{stylistId}/clients")]
-    public ActionResult Create(int stylistId, string clientName, int clientPhone)
+    public ActionResult Create(int stylistId, string clientName, string clientPhone)
     {
       Dictionary<string, object> info = new Dictionary<string, object>();
       Stylist selectStylist = Stylist.Find(stylistId);

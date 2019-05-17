@@ -26,7 +26,7 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost("/stylists/{stylistId}/clients/{clientId}")]
-    public ActionResult Update(int stylistId, int clientId, string newName, int newPhone)
+    public ActionResult Update(int stylistId, int clientId, string newName, string newPhone)
     {
       Client client = Client.Find(clientId);
       client.Edit(newName, newPhone);

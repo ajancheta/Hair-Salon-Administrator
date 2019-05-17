@@ -9,9 +9,9 @@ namespace HairSalon.Models
     private int _id;
     private int _stylistId;
     private string _name;
-    private int _phone;
+    private string _phone;
 
-    public Client (int stylistId, string name, int phone, int id = 0)
+    public Client (int stylistId, string name, string phone, int id = 0)
     {
       _id = id;
       _stylistId = stylistId;
@@ -21,7 +21,7 @@ namespace HairSalon.Models
 
     public string ClientName { get => _name; set => _name = value; }
 
-    public int ClientPhone { get => _phone; set => _phone = value; }
+    public string ClientPhone { get => _phone; set => _phone = value; }
 
     public int GetId()
     {
@@ -46,7 +46,7 @@ namespace HairSalon.Models
         int clientId = rdr.GetInt32(0);
         int clientStylistId = rdr.GetInt32(1);
         string clientName = rdr.GetString(2);
-        int clientPhone = rdr.GetInt32(3);
+        string clientPhone = rdr.GetString(3);
         Client newClient = new Client(clientStylistId, clientName, clientPhone, clientId);
         allClients.Add(newClient);
       }
@@ -72,14 +72,14 @@ namespace HairSalon.Models
       int clientId = 0;
       int clientStylistId = 0;
       string clientName = "";
-      int clientPhone = 0;
+      string clientPhone = "";
 
       while(rdr.Read())
       {
         clientId = rdr.GetInt32(0);
         clientStylistId = rdr.GetInt32(1);
         clientName = rdr.GetString(2);
-        clientPhone = rdr.GetInt32(3);
+        clientPhone = rdr.GetString(3);
       }
 
       Client newClient = new Client(clientStylistId, clientName, clientPhone, clientId);
@@ -137,7 +137,7 @@ namespace HairSalon.Models
       }
     }
 
-    public void Edit(string newName, int newPhone)
+    public void Edit(string newName, string newPhone)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
