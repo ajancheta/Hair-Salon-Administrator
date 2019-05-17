@@ -30,7 +30,7 @@
 
     <div class="new">
 
-    <h1 class="welcome">Add A Stylist to this specialty:</h1><br>
+    <h1 class="welcome">Add A Stylist to this Specialty:</h1><br>
     <h2 class="specialty">@Model["selectedSpecialty"].SpecialtyName</h2>
 
       <div class="outline">
@@ -48,7 +48,25 @@
         <button type="submit" class="btn btn-info btn-sm">+</button>
         </form>
 
+        <h3>Experienced stylists within this specialty:</h3>
+        @if (@Model.Count == 0)
+        {
+          <h3>There are no stylists within this specialty!</h3>
+        }
+
+        @if (@Model.Count != 0)
+        {
+          @foreach (var stylists in @Model["selectedStylist"])
+          {
+            <li>@stylist.StylistName</li>
+          }
+        }
+
       </div>
+
+      <br><br><form action='/specialties/@Model["selectedSpecialty"].GetId()/delete' method='post'>
+        <button type="submit" class="btn btn-danger">Delete this specialty</button>
+      </form>
     </div>
 
   </body>
