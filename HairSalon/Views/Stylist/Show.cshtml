@@ -80,15 +80,15 @@
             <option value='@specialty.GetId()'>@specialty.SpecialtyName</option>
           }
         </select>
-        <button class="btn btn-info btn-sm" type='submit'>Add</button>
+        <button class="btn btn-info btn-sm" type='submit'>+</button>
       </form>
 
     </div>
+    <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
+      <button type="submit" class="btn btn-danger btn-lg" id="btnStylistDelete">Delete this stylist</button>
+    </form>
   </div>
 
-  <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
-    <button type="submit" class="btn btn-danger btn-lg" id="btnStylistDelete">Delete this stylist</button>
-  </form>
 </div>
 
 

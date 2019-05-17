@@ -28,22 +28,24 @@
       </div>
     </nav>
 
-    <h1 class="welcome">Add A Stylist to this specialty:</h1><br>
-    <h2>@Model["selectedSpecialty"].SpecialtyName</h2>
-
     <div class="new">
+
+    <h1 class="welcome">Add A Stylist to this specialty:</h1><br>
+    <h2 class="specialty">@Model["selectedSpecialty"].SpecialtyName</h2>
+
       <div class="outline">
 
         <form action='/specialties/@Model["selectedSpecialty"].GetId()/stylists/new' method='post'>
-        <label for="stylistId">Select a stylist:</label>
+        <label for="stylistId">Add to stylist:</label>
         <select id="stylistId" name="stylistId" type="text">
           @foreach (var stylist in @Model["allStylists"])
           {
+            <option>Select an option</option>
             <option value="@stylist.GetId()">@stylist.StylistName</option>
 
           }
         </select>
-        <button type="submit" class="btn btn-info btn-sm">Add</button>
+        <button type="submit" class="btn btn-info btn-sm">+</button>
         </form>
 
       </div>
