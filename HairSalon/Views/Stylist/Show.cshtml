@@ -31,9 +31,9 @@
 
   <h1 class="welcome">Stylist: @Model["stylist"].StylistName</h1>
 
-  <div class="new">
-    <div class="outline">
-      <div class="employee">
+  <div class="employee">
+    <div class="new">
+      <div class="outline">
         @if (@Model["clients"].Count == 0)
         {
           <h3>No clients have been added yet!</h3>
@@ -68,20 +68,19 @@
         }
       </div>
     </div>
-  </div>
 
   <div class="new">
     <div class="outline">
 
       <form action='/stylists/@Model["stylist"].GetId()/specialties/new' method='post'>
-        <label for='specialtyId'>Select a specialty</label>
+        <label for='specialtyId'>Add specialty</label>
         <select id='specialtyId' name='specialtyId' type='text'>
           @foreach (var specialty in @Model["allSpecialties"])
           {
-            <option value='@specialty.GetId()'>@specialty.GetName()</option>
+            <option value='@specialty.GetId()'>@specialty.SpecialtyName</option>
           }
         </select>
-        <button class="btn btn-warning" type='submit'>Add</button>
+        <button class="btn btn-info btn-sm" type='submit'>Add</button>
       </form>
 
     </div>
@@ -90,8 +89,10 @@
   <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
     <button type="submit" class="btn btn-danger btn-lg" id="btnStylistDelete">Delete this stylist</button>
   </form>
-
 </div>
+
+
+  </div>
 
 </body>
 </html>
