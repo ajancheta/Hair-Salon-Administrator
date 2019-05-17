@@ -5,6 +5,7 @@
 /* nav bar css -----------> */
 
 #indexNav {
+  background-color: #000000;
   overflow: hidden;
   text-align: center;
   position: fixed;
@@ -15,8 +16,8 @@
   padding-top: 2px;
   margin-bottom: 2px;
   opacity: 0.9;
-  z-index: 50;
-  align-items: center;
+  z-index: 100;
+
 }
 
 #indexNav a {
@@ -137,7 +138,7 @@ ul {
     list-style-type: none;
 }​
 
-.specialty {
+#specialtyName {
   font-family: 'Staatliches', cursive;
   text-transform: uppercase;
   padding-bottom: 3px;

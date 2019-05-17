@@ -1,3 +1,5 @@
+@using HairSalon.Models;
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +51,6 @@
 
           <h3>Current clients</h3>
 
-
           <ul class="clientList">
             @foreach (var client in @Model["clients"])
             {
@@ -71,6 +72,17 @@
 
   <div class="new">
     <div class="outline">
+
+      @if (@Model["stylistSpecialties"].Count != 0)
+      {
+        <h3>Specializes in:</h3>
+        <ul>
+          @foreach (Specialty specialty in @Model["stylistSpecialties"])
+          {
+            <li>@specialty.SpecialtyName</li>
+          }
+        </ul>
+      }
 
       <form action='/stylists/@Model["stylist"].GetId()/specialties/new' method='post'>
         <label for='specialtyId'>Add specialty</label>

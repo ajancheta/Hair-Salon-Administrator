@@ -31,7 +31,7 @@
     <div class="new">
 
     <h1 class="welcome">Add A Stylist to this Specialty:</h1><br>
-    <h2 class="specialty">@Model["selectedSpecialty"].SpecialtyName</h2>
+    <h2 id="specialtyName">@Model["selectedSpecialty"].SpecialtyName</h2>
 
       <div class="outline">
 
@@ -40,7 +40,6 @@
         <select id="stylistId" name="stylistId" type="text">
           @foreach (var stylist in @Model["allStylists"])
           {
-            <option>Select an option</option>
             <option value="@stylist.GetId()">@stylist.StylistName</option>
 
           }
