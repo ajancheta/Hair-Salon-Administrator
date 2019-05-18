@@ -134,13 +134,13 @@ label {
   margin-top: 20px;
 }
 
-/* ul {
-    list-style-type: none;
-}​ */
-
 .subHeading {
   font-family: 'Staatliches', cursive;
   letter-spacing: 3px;
   text-align: center;
   text-transform: uppercase;
+}
+
+ul {
+  list-style-type: none;
 }
