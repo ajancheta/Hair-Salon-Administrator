@@ -15,7 +15,7 @@ namespace HairSalon.Tests
 
     public void Dispose()
     {
-      Stylist.ClearAll();
+      Specialty.ClearAll();
       Client.ClearAll();
       Specialty.ClearAll();
     }
@@ -24,80 +24,62 @@ namespace HairSalon.Tests
     public void SpecialtyName_ReturnsSpecialtyName_String()
     {
       string name = "Test Specialty";
-      Stylist newStylist = new Stylist(name);
-      string result = newStylist.StylistName;
+      Specialty newSpecialty = new Specialty(name);
+      string result = newSpecialty.SpecialtyName;
       Assert.AreEqual(name, result);
     }
 
-    // [TestMethod]
-    // public void GetAll_ReturnsObjectsOfStylists_StylistList()
-    // {
-    //   string nameOne = "Name1";
-    //   string nameTwo = "Name2";
-    //
-    //   Stylist newStylistOne = new Stylist(nameOne);
-    //   newStylistOne.Save();
-    //   Stylist newStylistTwo = new Stylist(nameTwo);
-    //   newStylistTwo.Save();
-    //
-    //   List<Stylist> newList = new List<Stylist> { newStylistOne, newStylistTwo };
-    //
-    //   List<Stylist> result = Stylist.GetAll();
-    //
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void Equals_ReturnsTrueIfNamesAreTheSame_Stylist()
-    // {
-    //   Stylist stylistOne = new Stylist("Name");
-    //   Stylist stylistTwo = new Stylist("Name");
-    //
-    //   Assert.AreEqual(stylistOne, stylistTwo);
-    // }
-    //
-    // [TestMethod]
-    // public void Save_SavesStylistToDatabase_StylistList()
-    // {
-    //   Stylist testStylist = new Stylist("Name");
-    //   testStylist.Save();
-    //
-    //   List<Stylist> result = Stylist.GetAll();
-    //   List<Stylist> testList = new List<Stylist> {testStylist};
-    //
-    //   CollectionAssert.AreEqual(testList, result);
-    // }
-    //
-    // [TestMethod]
-    // public void Save_DatabaseAssignsIdToStylist_Id()
-    // {
-    //   Stylist testStylist = new Stylist("Name");
-    //   testStylist.Save();
-    //
-    //   Stylist savedStylist = Stylist.GetAll()[0];
-    //
-    //   int result = savedStylist.GetId();
-    //   int testId = testStylist.GetId();
-    //
-    //   Assert.AreEqual(testId, result);
-    // }
-    //
-    // [TestMethod]
-    // public void GetClients_RetrievesAllClientsWithStylist_ClientList()
-    // {
-    //   Stylist testStylist = new Stylist("Stylist Name");
-    //   testStylist.Save();
-    //
-    //   Client firstClient = new Client(testStylist.GetId(), "NameOne", 1);
-    //   firstClient.Save();
-    //
-    //   Client secondClient = new Client(testStylist.GetId(), "Name2", 1);
-    //   secondClient.Save();
-    //   List<Client> testClientList = new List<Client> {firstClient, secondClient};
-    //
-    //   List<Client> resultClientList = testStylist.GetClients();
-    //
-    //   CollectionAssert.AreEqual(testClientList, resultClientList);
-    // }
+    [TestMethod]
+    public void GetAll_ReturnsObjectsOfSpecialties_SpecialtyList()
+    {
+      string nameOne = "Name1";
+      string nameTwo = "Name2";
+
+      Specialty newSpecialtyOne = new Specialty(nameOne);
+      newSpecialtyOne.Save();
+      Specialty newSpecialtyTwo = new Specialty(nameTwo);
+      newSpecialtyTwo.Save();
+
+      List<Specialty> newList = new List<Specialty> { newSpecialtyOne, newSpecialtyTwo };
+
+      List<Specialty> result = Specialty.GetAll();
+
+      CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void Equals_ReturnsTrueIfNamesAreTheSame_Specialty()
+    {
+      Specialty stylistOne = new Specialty("Name");
+      Specialty stylistTwo = new Specialty("Name");
+
+      Assert.AreEqual(stylistOne, stylistTwo);
+    }
+
+    [TestMethod]
+    public void Save_SavesSpecialtyToDatabase_SpecialtyList()
+    {
+      Specialty testSpecialty = new Specialty("Name");
+      testSpecialty.Save();
+
+      List<Specialty> result = Specialty.GetAll();
+      List<Specialty> testList = new List<Specialty> {testSpecialty};
+
+      CollectionAssert.AreEqual(testList, result);
+    }
+
+    [TestMethod]
+    public void Save_DatabaseAssignsIdToSpecialty_Id()
+    {
+      Specialty testSpecialty = new Specialty("Name");
+      testSpecialty.Save();
+
+      Specialty savedSpecialty = Specialty.GetAll()[0];
+
+      int result = savedSpecialty.GetId();
+      int testId = testSpecialty.GetId();
+
+      Assert.AreEqual(testId, result);
+    }
   }
 }
