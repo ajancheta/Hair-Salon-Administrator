@@ -13,6 +13,7 @@ namespace HairSalon.Tests
     {
       Stylist.ClearAll();
       Client.ClearAll();
+      Specialty.ClearAll();
     }
 
     public StylistTest()
@@ -93,10 +94,10 @@ namespace HairSalon.Tests
       Stylist testStylist = new Stylist("Stylist Name");
       testStylist.Save();
 
-      Client firstClient = new Client(testStylist.GetId(), "NameOne", 1);
+      Client firstClient = new Client(testStylist.GetId(), "NameOne", "1");
       firstClient.Save();
 
-      Client secondClient = new Client(testStylist.GetId(), "Name2", 1);
+      Client secondClient = new Client(testStylist.GetId(), "Name2", "1");
       secondClient.Save();
       List<Client> testClientList = new List<Client> {firstClient, secondClient};
 

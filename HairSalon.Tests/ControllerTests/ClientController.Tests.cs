@@ -39,11 +39,19 @@ namespace HairSalon.Tests
     }
 
     [TestMethod]
-    public void Delete_ReturnsCorrectType_ActionResult()
+    public void Edit_ReturnsCorrectType_ActionResult()
     {
       ClientController controller = new ClientController();
-      IActionResult view = controller.Delete(1);
+      IActionResult view = controller.Edit(1, 2);
       Assert.IsInstanceOfType(view, typeof(ViewResult));
+    }
+
+    [TestMethod]
+    public void Edit_HasCorrectModelType_Dictionary()
+    {
+      ViewResult view = new ClientController().Edit(1, 2) as ViewResult;
+      var result = view.ViewData.Model;
+      Assert.IsInstanceOfType(result, typeof(Dictionary<string, object>));
     }
 
 

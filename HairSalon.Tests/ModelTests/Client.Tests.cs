@@ -25,7 +25,7 @@ namespace HairSalon.Tests
     {
       //Arrange
       string name = "Name";
-      Client newClient = new Client(1, name, 808-239-0499);
+      Client newClient = new Client(1, name, "8082390499");
 
       //Act
       string result = newClient.ClientName;
@@ -40,9 +40,9 @@ namespace HairSalon.Tests
       //Arrange
       string nameOne = "Name1";
       string nameTwo = "Name2";
-      Client newClient1 = new Client(1, nameOne, 971-000-1212);
+      Client newClient1 = new Client(1, nameOne, "9710001212");
       newClient1.Save();
-      Client newClient2 = new Client(1, nameTwo, 808-000-0000);
+      Client newClient2 = new Client(1, nameTwo, "8080000000");
       newClient2.Save();
       List<Client> newList = new List<Client> { newClient1, newClient2 };
 
@@ -57,7 +57,7 @@ namespace HairSalon.Tests
     public void Find_ReturnCorrectClientFromDatabase_Client()
     {
       //Arrange
-      Client testClient = new Client(1, "Name", 808-000-0000);
+      Client testClient = new Client(1, "Name", "8080000000");
       testClient.Save();
 
       //Act
@@ -71,8 +71,8 @@ namespace HairSalon.Tests
     public void Equals_ReturnsTrueIfClientNamesAreEqual_Client()
     {
       // Arrange, Act
-      Client clientOne = new Client(1, "Name2", 808-000-0000);
-      Client clientTwo = new Client(1, "Name2", 808-000-0000);
+      Client clientOne = new Client(1, "Name2", "8080000000");
+      Client clientTwo = new Client(1, "Name2", "8080000000");
 
       // Assert
       Assert.AreEqual(clientOne, clientTwo);
@@ -82,7 +82,7 @@ namespace HairSalon.Tests
     public void Save_SavesToDatabase_ClientList()
     {
       //Arrange
-      Client testClient = new Client(1, "Name3", 808-000-0000);
+      Client testClient = new Client(1, "Name3", "8080000000");
 
       //Act
       testClient.Save();
@@ -97,7 +97,7 @@ namespace HairSalon.Tests
     public void Save_AssignsIdToObject_Id()
     {
       //Arrange
-      Client testClient = new Client(1, "Name", 808-000-0000);
+      Client testClient = new Client(1, "Name", "8080000000");
 
       //Act
       testClient.Save();
