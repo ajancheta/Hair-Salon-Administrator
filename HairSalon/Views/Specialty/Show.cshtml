@@ -30,7 +30,7 @@
 
     <div class="centerText">
 
-    <h1 class="welcome">Add A Stylist to this Specialty:</h1><br>
+    <h1 class="welcome">Add A Stylist to:</h1>
     <h2 class="subHeading">@Model["selectedSpecialty"].SpecialtyName</h2><br>
 
       <div class="outline">
@@ -46,7 +46,7 @@
           {
             @foreach (Stylist stylist in @Model["specialtyStylists"])
             {
-              @stylist.StylistName<br>
+              <a href="/stylists/@stylist.GetId()">@stylist.StylistName</a><br>
             }
           }
       </div>
@@ -68,7 +68,7 @@
 
     <div class="new">
       <br><br><form action='/specialties/@Model["selectedSpecialty"].GetId()/delete' method='post'>
-        <button type="submit" class="btn btn-danger" id="deleteButton">Delete this specialty</button>
+        <button type="submit" class="btn btn-danger btn-lg" id="deleteButton">Delete Specialty</button>
       </form>
     </div>
 
