@@ -1,6 +1,6 @@
-/* *{
+*{
   border: 1px solid red;
-} */
+}
 
 /* nav bar css -----------> */
 
@@ -68,14 +68,17 @@ body {
   text-align: center;
 }
 
-.employee {
-  padding-top: 20px;
-
+.centerText {
+  text-align: center;
 }
 
-.new {
-  padding-top: 20px;
+.outline {
+  border: 1px solid white;
+  padding: 30px;
+  margin-left: 20%;
+  margin-right: 20%;
   text-align: center;
+  margin-top: 20px;
 }
 
 .stylistName {
@@ -89,9 +92,10 @@ body {
 
 #deleteButton {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.clientList {
+.list {
   font-size: 20px;
   letter-spacing: 2px;
 }
@@ -112,21 +116,13 @@ a:hover {
   padding-top: 30px;
 }
 
-.outline {
-  border: 1px solid white;
-  padding: 30px;
-  margin-left: 400px;
-  margin-right: 400px;
-  /* padding-top: 20px; */
-}
-
 label {
   padding-right: 10px;
   padding-top: 10px;
 }
 
 #btnStylistDelete {
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 50px;
 }
 
@@ -140,7 +136,20 @@ label {
   text-align: center;
   text-transform: uppercase;
 }
-
-ul {
-  list-style-type: none;
+/*
+.parent {
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+  align-items: center;
 }
+
+.clients {
+  width: 30%;
+  height: 50%;
+}
+
+.stylistSpecialties {
+  width: 50%;
+  height: 50%;
+} */

@@ -19,32 +19,28 @@
           <li class="nav-item">
           <a class="nav-link" href="/stylists">Stylists</a>
           </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/specialties">Specialties</a>
+          </li>
         </ul>
       </div>
     </nav>
 
     <h1 class="welcome">Add a new client to @Model.StylistName</h1>
 
-    <div class="new">
-      <div class="outline">
+    <div class="outline">
+      <form action='/stylists/@Model.GetId()/clients' method='post'>
+      <input id='stylistId' name='stylistId' type='hidden' value='@Model.GetId()'>
 
-        <div class="employee">
-          <form action='/stylists/@Model.GetId()/clients' method='post'>
-          <input id='stylistId' name='stylistId' type='hidden' value='@Model.GetId()'>
+       <label for='clientName'>Name:</label>
+       <input id='clientName' name='clientName' type='text' required>
+       <br>
+       <label for='clientPhone'>Phone number:</label>
+       <input id='clientPhone' name='clientPhone' type='text' required>
 
-           <label for='clientName'>Name:</label>
-           <input id='clientName' name='clientName' type='text' required>
-           <br>
-           <label for='clientPhone'>Phone number:</label>
-           <input id='clientPhone' name='clientPhone' type='number' required>
-
-           <button id="button" type="submit" class="btn btn-info btn-sm">Add client</button>
-         </form>
-        </div>
-      </div>
+       <button type="submit" class="btn btn-info btn-sm">+</button>
+     </form>
     </div>
-
-
 
   </body>
 </html>

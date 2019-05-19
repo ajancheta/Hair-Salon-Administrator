@@ -36,77 +36,82 @@
 
   <h1 class="welcome">Stylist: @Model["stylist"].StylistName</h1>
 
-  <div class="employee">
-    <div class="new">
-      <div class="outline">
-        @if (@Model["clients"].Count == 0)
-        {
-          <h3>No clients have been added yet!</h3>
-          <br><br><form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
-            <button type="submit" class="btn btn-info">Add a new client</button>
-          </form>
+  <div class="parent">
 
-        }
+    <div class="clients">
+      <div class="new">
+        <div class="outline">
+          @if (@Model["clients"].Count == 0)
+          {
+            <h3>No clients have been added yet!</h3>
+            <br><br><form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+              <button type="submit" class="btn btn-info">Add a new client</button>
+            </form>
 
-        @if (@Model["clients"].Count != 0)
+          }
 
-        {
+          @if (@Model["clients"].Count != 0)
 
-          <h3>Current clients</h3>
+          {
 
-          <ul class="clientList">
-            @foreach (var client in @Model["clients"])
-            {
-              <li><a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a></li>
-            }
-          </ul>
+            <h3>Current clients</h3>
+
+            <div class="clientList">
+              @foreach (var client in @Model["clients"])
+              {
+                <a href="/stylists/@Model["stylist"].GetId()/clients/@client.GetId()">@client.ClientName</a><br>
+              }
+            </div>
 
 
-          <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
-            <button type="submit" class="btn btn-info btn-sm">Add another client</button>
-          </form>
+            <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='get'>
+              <button type="submit" class="btn btn-info btn-sm">Add another client</button>
+            </form>
 
-          <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
-            <button type="submit" class="btn btn-danger btn-sm" id="btnClientDelete">Delete all clients</button>
-          </form>
-        }
+            <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
+              <button type="submit" class="btn btn-danger btn-sm" id="btnClientDelete">Delete all clients</button>
+            </form>
+          }
+        </div>
       </div>
     </div>
 
-  <div class="new">
-    <div class="outline">
+    <div class="stylistSpecialties">
+      <div class="new">
+        <div class="outline">
 
-      @if (@Model["stylistSpecialties"].Count != 0)
-      {
-        <h3>Specializes in:</h3>
-        <ul>
-          @foreach (Specialty specialty in @Model["stylistSpecialties"])
+          @if (@Model["stylistSpecialties"].Count != 0)
           {
-            <li>@specialty.SpecialtyName</li>
+            <h3>Specialties</h3>
+            <div class="list">
+              @foreach (Specialty specialty in @Model["stylistSpecialties"])
+              {
+                @specialty.SpecialtyName<br>
+              }
+            </div>
           }
-        </ul>
-      }
 
-      <form action='/stylists/@Model["stylist"].GetId()/specialties/new' method='post'>
-        <label for='specialtyId'>Add specialty</label>
-        <select id='specialtyId' name='specialtyId' type='text'>
-          @foreach (var specialty in @Model["allSpecialties"])
-          {
-            <option value='@specialty.GetId()'>@specialty.SpecialtyName</option>
-          }
-        </select>
-        <button class="btn btn-info btn-sm" type='submit'>+</button>
-      </form>
+          <form action='/stylists/@Model["stylist"].GetId()/specialties/new' method='post'>
+            <label for='specialtyId'>Add specialty</label>
+            <select id='specialtyId' name='specialtyId' type='text'>
+              @foreach (var specialty in @Model["allSpecialties"])
+              {
+                <option value='@specialty.GetId()'>@specialty.SpecialtyName</option>
+              }
+            </select>
+            <button class="btn btn-info btn-sm" type='submit'>+</button>
+          </form>
 
+        </div>
+      </div>
     </div>
+
+  </div>
+
+  <div class="new">
     <form action='/stylists/@Model["stylist"].GetId()/delete' method='post'>
       <button type="submit" class="btn btn-danger btn-lg" id="btnStylistDelete">Delete this stylist</button>
     </form>
-  </div>
-
-</div>
-
-
   </div>
 
 </body>

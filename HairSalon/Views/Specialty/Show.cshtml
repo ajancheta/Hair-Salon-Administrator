@@ -28,14 +28,32 @@
       </div>
     </nav>
 
-    <div class="new">
+    <div class="centerText">
 
     <h1 class="welcome">Add A Stylist to this Specialty:</h1><br>
-    <h1 class="subHeading">@Model["selectedSpecialty"].SpecialtyName</h1><br>
+    <h2 class="subHeading">@Model["selectedSpecialty"].SpecialtyName</h2><br>
 
       <div class="outline">
 
-        <form action='/specialties/@Model["selectedSpecialty"].GetId()/stylists/new' method='post'>
+        <h3>Experienced stylists within this specialty:</h3>
+        @if (@Model.Count == 0)
+        {
+          <h3>There are no stylists within this specialty!</h3>
+        }
+
+        <div class="list">
+          @if (@Model.Count != 0)
+          {
+            @foreach (Stylist stylist in @Model["specialtyStylists"])
+            {
+              @stylist.StylistName<br>
+            }
+          }
+      </div>
+    </div>
+
+    <div class="outline">
+      <form action='/specialties/@Model["selectedSpecialty"].GetId()/stylists/new' method='post'>
         <label for="stylistId">Add to stylist:</label>
         <select id="stylistId" name="stylistId" type="text">
           @foreach (var stylist in @Model["allStylists"])
@@ -45,28 +63,12 @@
           }
         </select>
         <button type="submit" class="btn btn-info btn-sm">+</button>
-        </form>
+      </form>
+    </div>
 
-        <h3>Experienced stylists within this specialty:</h3>
-        @if (@Model.Count == 0)
-        {
-          <h3>There are no stylists within this specialty!</h3>
-        }
-
-        @if (@Model.Count != 0)
-        {
-          <ul>
-          @foreach (Stylist stylist in @Model["specialtyStylists"])
-          {
-            <li>@stylist.StylistName</li>
-          }
-          </ul>
-        }
-
-      </div>
-
+    <div class="new">
       <br><br><form action='/specialties/@Model["selectedSpecialty"].GetId()/delete' method='post'>
-        <button type="submit" class="btn btn-danger">Delete this specialty</button>
+        <button type="submit" class="btn btn-danger" id="deleteButton">Delete this specialty</button>
       </form>
     </div>
 
