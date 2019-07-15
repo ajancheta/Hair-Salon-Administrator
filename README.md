@@ -30,7 +30,7 @@ This is an application for Hair Salon employers to keep track of their stylist a
 * Clone this repository "https://github.com/ajancheta/HairSalon.Solution.git"
 * Open the repository in a preferred text editor such as Atom or Visual Studio Code.
 
-To run the application, open your machine's terminal and navigate to the top project directory `HairSalon`. Type in the following commands:
+To run the application, open your machine's terminal and navigate to the top project directory `HairSalon`. Also ensure that MAMP Server has been started. Type in the following commands:
 
 ```sh
 $ dotnet restore
