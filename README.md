@@ -7,6 +7,11 @@
 ## Description
 This is an application for Hair Salon employers to keep track of their stylist and their clients. They are able to add, edit and delete new stylists and clients.
 
+## Preview
+![Preview Image 1](preview-one.png)
+![Preview Image 2](preview-two.png)
+![Preview Image 3](preview-three.png)
+
 ## Specs
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
@@ -25,7 +30,7 @@ This is an application for Hair Salon employers to keep track of their stylist a
 * Clone this repository "https://github.com/ajancheta/HairSalon.Solution.git"
 * Open the repository in a preferred text editor such as Atom or Visual Studio Code.
 
-To run the application, open your machine's terminal and type in the following commands within the main project directory
+To run the application, open your machine's terminal and navigate to the top project directory `HairSalon`. Type in the following commands:
 
 ```sh
 $ dotnet restore
